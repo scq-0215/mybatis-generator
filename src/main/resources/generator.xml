@@ -1,0 +1,85 @@
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--targetRuntime驱动：修改成为较为常用的驱动MyBatis3，生成的映射文件、接口相对复杂一些，更适用一些-->
+    <context id="simple" targetRuntime="MyBatis3">
+
+        <!--在生成实体类时添加序列化接口-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+
+        <!--在逆向生成的时候，去掉注释-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+
+        <!--数据库连接参数-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql:///atcrowdfunding?characterEncoding=utf8" userId="root" password="root"/>
+
+        <!--实体类保存位置以及包名-->
+        <javaModelGenerator targetPackage="com.offcn.order.pojo" targetProject="src/main/java"/>
+
+        <!--映射文件保存位置以及文件夹的名字-->
+        <sqlMapGenerator targetPackage="mappers" targetProject="src/main/resources"/>
+
+        <!--定义接口的保存位置以及包名-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.offcn.order.dao" targetProject="src/main/java"/>
+
+        <!--设置需要逆向生成的表-->
+        <!--
+        tb_address
+        tb_areas
+        tb_brand
+        tb_cities
+        tb_content
+        tb_content_category
+        tb_freight_template
+        tb_goods
+        tb_goods_desc
+        tb_item
+        tb_item_cat
+        tb_order
+        tb_order_item
+        tb_pay_log
+        tb_provinces
+        tb_seckill_goods
+        tb_seckill_order
+        tb_seller
+        tb_specification
+        tb_specification_option
+        tb_type_template
+        tb_user
+        -->
+<!--        <table tableName="tb_address" />-->
+<!--        <table tableName="tb_areas" />-->
+<!--        <table tableName="tb_brand" />-->
+<!--        <table tableName="tb_cities" />-->
+<!--        <table tableName="tb_content" />-->
+<!--        <table tableName="tb_content_category" />-->
+<!--        <table tableName="tb_freight_template" />-->
+<!--        <table tableName="tb_goods" />-->
+<!--        <table tableName="tb_goods_desc" />-->
+<!--        <table tableName="tb_item" />-->
+<!--        <table tableName="tb_item_cat" />-->
+<!--        <table tableName="tb_order" />-->
+<!--        <table tableName="tb_order_item" />-->
+<!--        <table tableName="tb_pay_log" />-->
+<!--        <table tableName="tb_provinces" />-->
+<!--        <table tableName="tb_seckill_goods" />-->
+<!--        <table tableName="tb_seckill_order" />-->
+<!--        <table tableName="tb_seller" />-->
+<!--        <table tableName="tb_specification" />-->
+<!--        <table tableName="tb_specification_option" />-->
+<!--        <table tableName="tb_type_template" />-->
+<!--        <table tableName="tb_user" />-->
+<!--        <table tableName="t_member"></table>-->
+<!--        <table tableName="t_member_address"></table>-->
+<!--        <table tableName="t_member_cert"></table>-->
+<!--        <table tableName="t_member_project_follow"></table>-->
+<!--        <table tableName="t_message"></table>-->
+        <table tableName="t_order"></table>
+        <table tableName="t_transaction"></table>
+    </context>
+</generatorConfiguration>
